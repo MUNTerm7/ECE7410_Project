@@ -56,8 +56,8 @@ Performs a log transformation on the grayscalegiven image
 def log_transformation(image):
 
     log_image = np.log1p(image)  # Apply log transformation
+    log_image = np.array(log_image, np.uint8) # Convert to uint8 array. Used the line from https://www.geeksforgeeks.org/log-transformation-of-an-image-using-python-and-opencv/ to convert to uint8
     log_image = cv2.normalize(log_image, None, 0, 255, cv2.NORM_MINMAX)  # Normalize to 0-255
-    log_image = np.uint8(log_image)  # Convert to uint8
 
     # Display the log-transformed image
     cv2.imshow("Log Transformed Image", log_image)
