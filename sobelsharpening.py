@@ -33,7 +33,7 @@ def img_grayscale_conversion(img_path):
         return None
 
 def sobel_sharpening(image):
-    # Apply Sobel operator to find gradients
+    #Apply Sobel operator to find gradients Implementation from https://docs.opencv.org/4.9.0/d2/d2c/tutorial_sobel_derivatives.html
     sobel_x = cv2.Sobel(image, cv2.CV_64F, 1, 0, ksize=3)
     sobel_y = cv2.Sobel(image, cv2.CV_64F, 0, 1, ksize=3)
 
@@ -48,7 +48,6 @@ def sobel_sharpening(image):
     cv2.imshow("Sharpened Image", sharpened_image)
     cv2.waitKey(1000)
     cv2.destroyAllWindows()
-
     return sharpened_image
 
 def main():
