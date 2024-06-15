@@ -102,7 +102,7 @@ def main():
 
     if grayscale_img is not None:
         # Perform histogram equalization
-        equalized_image = histogram_equalization(grayscale_img)
+        equalized_image = histogram_equalization(grayscale_img[0])
 
         # if equalized_image is not None:
         #     # Display the grayscale and equalized images side by side
