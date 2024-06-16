@@ -55,6 +55,7 @@ def img_grayscale_conversion(img_path):
 Performs an erosion operation on the given grayscale image
 '''
 def erosion_operation(image):
+    # Morphological Operations Documentation https://docs.opencv.org/4.x/d9/d61/tutorial_py_morphological_ops.html
     # Define a cross-shaped structuring element
     cross_kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (5, 5))
     erosion_image = cv2.erode(image, cross_kernel, iterations=1)  # Apply the erosion operation
