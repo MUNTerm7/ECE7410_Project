@@ -39,24 +39,19 @@ def main():
         
         saturation_image = rgbtohsi_histequ.saturation_calculation(normalized_rgb)
  
-        #Step 7 Calculate the RGB normalized in [0,1] using HSI -> RGB equations provided in class
+        #Calculate the RGB normalized in [0,1] using HSI -> RGB equations provided in class
         rgb_normalized_image = rgbtohsi_histequ.hsi_conversion_rgb(hue_image, saturation_image, normalized_opening_img)
 
         #Calculate the RGB normalized in [0,255]
         rgb_scaled_image = rgbtohsi_histequ.scale_image(rgb_normalized_image)
 
-        #Display Resulting Image
-        cv2.imshow("RGB Image", rgb_scaled_image)
+        cv2.imshow("RGB Scaled Image", rgb_scaled_image)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
-        #Step 8 Color Slicing
         color_sliced_img = colorslicing.color_slicing(rgb_scaled_image)
 
-        #Define path of resultant image
         output_file_path = "RGB_Result.jpg"
-
-        # Save the image
         cv2.imwrite(output_file_path, color_sliced_img)
 
 if __name__ == "__main__":
