@@ -67,6 +67,19 @@ def erosion_operation(image):
     
     return erosion_image
 
+def dilation_operation(image):
+    #Morpoholigal Operations Documentation https://docs.opencv.org/3.4/db/df6/tutorial_erosion_dilatation.html
+    # Define a cross-shaped structuring element
+    cross_kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (5, 5))
+    dilation_image = cv2.dilate(image, cross_kernel, iterations=1)  # Apply the dilation operation
+
+    # Display the dilated image
+    cv2.imshow("Dilated Image", dilation_image)
+    cv2.waitKey(1000)
+    cv2.destroyAllWindows()
+    
+    return dilation_image
+
 def main():
     # Accept path to image
     image_path_user = user_img_input()
