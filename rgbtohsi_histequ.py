@@ -164,7 +164,7 @@ def intensity_calculation(image):
                     intensity_image[i, j] = intensity
             
             cv2.imshow("Intensity Image", intensity_image)
-            cv2.waitKey(10000)
+            cv2.waitKey(0)
             cv2.destroyAllWindows()
 
             return intensity_image

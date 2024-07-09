@@ -57,12 +57,12 @@ Performs an erosion operation on the given grayscale image
 def erosion_operation(image):
     # Morphological Operations Documentation https://docs.opencv.org/4.x/d9/d61/tutorial_py_morphological_ops.html
     # Define a cross-shaped structuring element
-    cross_kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (5, 5))
+    cross_kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
     erosion_image = cv2.erode(image, cross_kernel, iterations=1)  # Apply the erosion operation
 
     # Display the eroded image
     cv2.imshow("Eroded Image", erosion_image)
-    cv2.waitKey(1000)
+    cv2.waitKey(0)
     cv2.destroyAllWindows()
     
     return erosion_image
@@ -70,12 +70,12 @@ def erosion_operation(image):
 def dilation_operation(image):
     #Morpoholigal Operations Documentation https://docs.opencv.org/3.4/db/df6/tutorial_erosion_dilatation.html
     # Define a cross-shaped structuring element
-    cross_kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (5, 5))
+    cross_kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
     dilation_image = cv2.dilate(image, cross_kernel, iterations=1)  # Apply the dilation operation
 
     # Display the dilated image
     cv2.imshow("Dilated Image", dilation_image)
-    cv2.waitKey(1000)
+    cv2.waitKey(0)
     cv2.destroyAllWindows()
     
     return dilation_image
