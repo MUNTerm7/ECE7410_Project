@@ -76,7 +76,7 @@ def color_slicing(image):
 
     # Display the resulting image
     cv2.imshow("Color Sliced Image", result_image)
-    cv2.waitKey(10000)
+    cv2.waitKey(0)
     cv2.destroyAllWindows()
 
     return result_image
