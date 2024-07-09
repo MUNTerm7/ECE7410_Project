@@ -46,7 +46,7 @@ def sobel_sharpening(image):
 
     # Display the sharpened image
     cv2.imshow("Sharpened Image", sharpened_image)
-    cv2.waitKey(1000)
+    cv2.waitKey(0)
     cv2.destroyAllWindows()
     return sharpened_image
 
