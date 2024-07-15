@@ -32,8 +32,16 @@ def main():
         #Normalize the intensity_img[0,255] to [0,1] to be used for HSI -> RGB conversion
         normalized_opening_img = rgbtohsi_histequ.pixel_normalize_image(opening_img)
 
+        cv2.imshow("Normalized Intensity Image", normalized_opening_img)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+
         #Normalize original RGB from [0,255] -> [0,1]
         normalized_rgb = rgbtohsi_histequ.normalize(image_float)
+
+        cv2.imshow("Normalized RGB Input Image", normalized_rgb)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
  
         hue_image = rgbtohsi_histequ.hue_calculation(normalized_rgb)
         
@@ -41,6 +49,10 @@ def main():
  
         #Calculate the RGB normalized in [0,1] using HSI -> RGB equations provided in class
         rgb_normalized_image = rgbtohsi_histequ.hsi_conversion_rgb(hue_image, saturation_image, normalized_opening_img)
+
+        cv2.imshow("RGB Normalized Image", rgb_normalized_image)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
 
         #Calculate the RGB normalized in [0,255]
         rgb_scaled_image = rgbtohsi_histequ.scale_image(rgb_normalized_image)

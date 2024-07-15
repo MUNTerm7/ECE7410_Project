@@ -49,6 +49,21 @@ Performs color slicing to enhance red and green colors and darken other colors
 def color_slicing(image):
     hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
+    hue, saturation, value = cv2.split(hsv_image)
+
+    cv2.imshow('Hue Channel', hue)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+
+    cv2.imshow('Saturation Channel', saturation)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+    cv2.imshow('Value Channel', value)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
     # Define the range for red color
     lower_red1 = np.array([0, 50, 50])
     upper_red1 = np.array([10, 255, 255])
@@ -63,15 +78,40 @@ def color_slicing(image):
     mask_red1 = cv2.inRange(hsv_image, lower_red1, upper_red1)
     mask_red2 = cv2.inRange(hsv_image, lower_red2, upper_red2)
     red_mask = mask_red1 + mask_red2
+
+    cv2.imshow('Red Mask', red_mask)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
     green_mask = cv2.inRange(hsv_image, lower_green, upper_green)
+
+    cv2.imshow('Green Mask', green_mask)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
     # Enhance the red and green colors in the original image
     result_image = image.copy()
     result_image[red_mask > 0] = [0, 0, 255]  # Set the red channel to max
+
+    cv2.imshow('Enhancing Red Detected Regions for Original Input Image', result_image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+
     result_image[green_mask > 0] = [0, 255, 0]  # Set the green channel to max
+
+    cv2.imshow('Enhancing Green Detected Regions for Original Input Image', result_image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
 
     # Darken the non-red and non-green areas
     combined_mask = red_mask + green_mask
+
+    cv2.imshow('Darken Regions of not Interest Mask', combined_mask)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    
     result_image[combined_mask == 0] = result_image[combined_mask == 0] // 2
 
     # Display the resulting image
