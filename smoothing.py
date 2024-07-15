@@ -38,7 +38,17 @@ def gaussian_filter(image, kernel_size=7):
 
     # Display the smoothed image
     cv2.imshow("Smoothed Image", smoothed_image)
-    cv2.waitKey(1000)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    
+    return smoothed_image
+
+def median_filter(image, kernel_size=7):
+    # Apply median filter for smoothing
+    smoothed_image = cv2.medianBlur(image, kernel_size)
+    
+    cv2.imshow("Smoothed Image", smoothed_image)
+    cv2.waitKey(0)
     cv2.destroyAllWindows()
     
     return smoothed_image

@@ -97,9 +97,9 @@ def hue_calculation(image):
 
                 else:
                     hue_image[i, j] = theta
-        cv2.imshow("Hue Image", hue_image)
-        cv2.waitKey(10000)
-        cv2.destroyAllWindows()
+        # cv2.imshow("Hue Image", hue_image)
+        # cv2.waitKey(10000)
+        # cv2.destroyAllWindows()
     return hue_image
 
 '''
@@ -127,9 +127,9 @@ def saturation_calculation(image):
                     # Store the saturation value in the new image
                     saturation_image[i, j] = saturation
 
-            cv2.imshow("Saturation Image", saturation_image)
-            cv2.waitKey(10000)
-            cv2.destroyAllWindows()
+            # cv2.imshow("Saturation Image", saturation_image)
+            # cv2.waitKey(10000)
+            # cv2.destroyAllWindows()
 
             return saturation_image
 
@@ -164,7 +164,7 @@ def intensity_calculation(image):
                     intensity_image[i, j] = intensity
             
             cv2.imshow("Intensity Image", intensity_image)
-            cv2.waitKey(10000)
+            cv2.waitKey(0)
             cv2.destroyAllWindows()
 
             return intensity_image
